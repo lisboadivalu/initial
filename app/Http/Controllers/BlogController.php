@@ -9,21 +9,21 @@ class BlogController extends Controller
 {
     public function index()
     {
-        //
+        return view('blog');
     }
 
-    public function tecnologia($id)
+    public function tecnologiaIndex()
     {
-        //
+        return view('tecnologia');   
     }
 
-    public function esports($id)
+    public function esportsIndex()
     {
-        //
+        return view('esports');  
     }
 
-    public function cripto($id)
+    public function criptoIndex()
     {
-        //
+        return view('cripto');  
     }
 }

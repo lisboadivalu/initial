@@ -10,6 +10,10 @@ class Post extends Model
     use HasFactory;
     
     function user(){
-        $this->belongsToMany(['App\Models\User','App\Models\Admin']);
+        return $this->hasMany(User::class);
+    }
+
+    function admin(){
+        return $this->hasMnay(Admin::class);
     }
 }

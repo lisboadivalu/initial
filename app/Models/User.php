@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     function post(){
-        $this->hasOne('App\Models\Post');
+       return $this->hasOne(Post::class);
     }
 
     /**

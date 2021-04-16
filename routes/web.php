@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,21 +24,16 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+
+Route::get('/tecnologia', [BlogController::class, 'tecnologiaIndex'])->name('tecnologia');
+
+Route::get('/esports', [BlogController::class, 'esportsIndex'])->name('esports');
+
+Route::get('/criptomoedas', [BlogController::class, 'criptoIndex'])->name('cripto');
 
 Route::get('/pessoal', function(){
     return view('pessoal');
 });
 
-Route::get('/tecnologia', function(){
-    return view('tecnologia');
-});
-
-Route::get('/esports', function(){
-    return view('esports');
-});
-
-Route::get('/criptomoedas', function(){
-    return view('cripto');
-});
 
