@@ -29,4 +29,15 @@ Route::get('/pessoal', function(){
     return view('pessoal');
 });
 
+Route::get('/tecnologia', function(){
+    return view('tecnologia');
+});
+
+Route::get('/esports', function(){
+    return view('esports');
+});
+
+Route::get('/criptomoedas', function(){
+    return view('cripto');
+});
 
