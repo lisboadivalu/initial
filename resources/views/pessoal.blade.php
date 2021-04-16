@@ -11,7 +11,7 @@
 
     <div class="bg-black bg-opacity-50 h-full absolute inset-0 hidden justify-center items-center" id="modal-form">
         <div class="bg-gray-200 rounded-lg py-2 px-4">
-            <form action="" class="w-1/3  h-5/6 bg-gray-200 space-y-3 mx-10 font-bold">
+            <form action="" class="w-1/3  h-5/6 bg-gray-200 space-y-3 mx-10 font-bold" enctype="multipart/form-data">
                 <div class="">
                     <h1 class="text-center text-2xl ">Novo Post</h1>
                 </div>

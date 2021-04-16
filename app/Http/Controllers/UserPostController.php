@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class UserPostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +19,7 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        //meus posts
-
+        return view('pessoal');
     }
 
     /**
@@ -24,7 +29,7 @@ class UserPostController extends Controller
      */
     public function create()
     {
-        //
+        // nao sera usado
     }
 
     /**
