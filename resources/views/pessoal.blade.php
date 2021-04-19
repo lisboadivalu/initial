@@ -11,7 +11,7 @@
 
     <div class="bg-black bg-opacity-50 h-full absolute inset-0 hidden justify-center items-center" id="modal-form">
         <div class="bg-gray-200 rounded-lg py-2 px-4">
-            <form action="" class="w-1/3  h-5/6 bg-gray-200 space-y-3 mx-10 font-bold" enctype="multipart/form-data">
+            <form action="{{route('pessoal.store')}}" method="POST" class="w-1/3  h-5/6 bg-gray-200 space-y-3 mx-10 font-bold" enctype="multipart/form-data">
                 <div class="">
                     <h1 class="text-center text-2xl ">Novo Post</h1>
                 </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="mt-2">
                     <label for="foto">Foto</label>
-                    <input type="file" name="foto" class="mt-2">
+                    <input type="file" name="img" class="mt-2">
                 </div>
                 <div class="mt-2">
                     <label for="materia">Materia</label>
@@ -43,7 +43,7 @@
                 <button type="submit" id="postar-btn" class="px-4 py-2 bg-black hover:bg-gray-700 text-white font-bold rounded-md ">
                     Postar
                 </button>
-                <button type="submit" id="cancelar-btn" class="px-4 py-2 ml-4 bg-red-700 hover:bg-red-900 text-white font-bold rounded-md ">
+                <button id="cancelar-btn" class="px-4 py-2 ml-4 bg-red-700 hover:bg-red-900 text-white font-bold rounded-md ">
                     Cancelar
                 </button>
 
@@ -64,7 +64,7 @@
                 <div class="mt-4">
                     <span>Genero</span>
                 </div>    
-                <form action="#" method="POST">
+                <form action="{{route(pessoal.destroy)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="mt-6 py-4 px-4 shadow-md bg-red-600 hover:bg-red-900 font-bold text-white rounded-md">
@@ -108,7 +108,7 @@
                 <form action="#" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="mt-6 py-4 px-4 bg-red-600 hover:bg-red-900 font-bold text-white rounded-md">
+                    <button type="submit" class=" mt-6 py-4 px-4 bg-red-600 hover:bg-red-900 font-bold text-white rounded-md">
                         Deletar
                     </button>
                 </form>
@@ -129,6 +129,11 @@
 
             novo.addEventListener('click', toggleModal)
         })
+
+        var closemodal = document.querySelector('#cancelar-btn')
+        for (var i = 0; i < closemodal.length; i++) {
+          closemodal[i].addEventListener('click', toggleModal)
+        }
     </script>        
       
 @endsection

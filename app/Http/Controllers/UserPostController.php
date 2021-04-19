@@ -7,10 +7,7 @@ use App\Models\Post;
 
 class UserPostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  
 
     /**
      * Display a listing of the resource.
@@ -19,6 +16,7 @@ class UserPostController extends Controller
      */
     public function index()
     {
+        //$posts = Post::all();
         return view('pessoal');
     }
 
@@ -40,7 +38,20 @@ class UserPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $size = $request->file('foto')->getSize();
+        $name = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('public/images', $name);
+
+        $post = new Post;
+        $post->titulo = $request->input('titulo');
+        $post->texto = $request->input('materia');
+        $post->foto = $name;
+        $post->foto = $size;
+        $post->titulo = $request->input('genero');
+        $post->save();
+
+        return redirect()->route('pessoal');
+
     }
 
     /**
@@ -51,7 +62,8 @@ class UserPostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post', compact('post'));
     }
 
     /**
@@ -62,7 +74,8 @@ class UserPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post', compact('post'));
     }
 
     /**
@@ -74,7 +87,21 @@ class UserPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $size = $request->file('foto')->getSize();
+        $name = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('public/images', $name);
+
+        $post = Post::find($id);
+        if(isset($post)){        
+            $post->titulo = $request->input('titulo');
+            $post->texto = $request->input('materia');
+            $post->foto = $name;
+            $post->foto = $size;
+            $post->titulo = $request->input('genero');
+            $post->save();
+        }
+
+        return redirect()->route('pessoal.index');
     }
 
     /**
@@ -85,6 +112,8 @@ class UserPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = Post::find($id);
+        $del->delete();
+        return response('Ok', 200);
     }
 }

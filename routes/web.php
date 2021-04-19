@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,8 +33,12 @@ Route::get('/esports', [BlogController::class, 'esportsIndex'])->name('esports')
 
 Route::get('/criptomoedas', [BlogController::class, 'criptoIndex'])->name('cripto');
 
-Route::get('/pessoal', function(){
+/* Route::get('/pessoal', function(){
     return view('pessoal');
+}); */
+
+Route::resource('/pessoal', UserPostController::class);
+
+Route::get('/post', function(){
+    return view('post');
 });
-
-

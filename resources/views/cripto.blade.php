@@ -6,7 +6,7 @@
 	<img src="{{asset('img/cripto.jpg')}}" alt="" class="w-full h-full object-cover object-center">
 </div>
 
-<div class="pl-3/12 ">
+<div class="pl-3/12">
 	<div class="mt-24 max-w-2xl py-10 bg-gray-100 rounded-xl shadow-md text-center text-3xl font-bold">
 			<a href="{{route('tecnologia')}}" class="hover:text-blue-800 px-16 my-15">Tecnologia</a>
 			<a href="{{route('esports')}}" class="hover:text-blue-800 px-16 my-15">Esports</a>	
