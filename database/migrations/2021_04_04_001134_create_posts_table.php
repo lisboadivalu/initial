@@ -20,8 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('img');
             $table->string('img_size');
             $table->string('genero');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

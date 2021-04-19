@@ -14,6 +14,18 @@ class Post extends Model
     }
 
     function admin(){
-        return $this->hasMnay(Admin::class);
+        return $this->hasMany(Admin::class);
+    }
+
+    function tecnologia(){
+        return $this->hasMany(Tecnologia::class);
+    }
+
+    function esport(){
+        return $this->hasMany(Esport::class);
+    }
+
+    function cripto(){
+        return $this->hasMany(Cripto::class);
     }
 }

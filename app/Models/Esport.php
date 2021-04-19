@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Esport extends Model
 {
     use HasFactory;
+    
+    function post(){
+        return $this->belongsTo(Post::class);
+    }    
 }
