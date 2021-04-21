@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Auth\Events\Validated;
 
 class UserPostController extends Controller
 {
-  
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
 
     /**
      * Display a listing of the resource.
@@ -16,8 +20,8 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        //$posts = Post::all();
-        return view('pessoal');
+        $posts = Post::all();
+        return view('pessoal', compact(['posts']));
     }
 
     /**
@@ -38,19 +42,28 @@ class UserPostController extends Controller
      */
     public function store(Request $request)
     {
-        $size = $request->file('foto')->getSize();
-        $name = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('public/images', $name);
+
+        
+        $request->validate([
+            'titulo' => 'required',
+            'texto' => 'required',
+            'genero' => 'required'
+        ]);
+
+        $size = $request->file('img')->getSize();
+        $name = $request->file('img')->getClientOriginalName();
+        $request->file('img')->storeAs('public/images', $name);
 
         $post = new Post;
         $post->titulo = $request->input('titulo');
         $post->texto = $request->input('materia');
-        $post->foto = $name;
-        $post->foto = $size;
-        $post->titulo = $request->input('genero');
+        $post->img = $name;
+        $post->img_size = $size;
+        $post->genero = $request->input('genero');
+        $post->user_id = $request->user->id;
         $post->save();
-
-        return redirect()->route('pessoal');
+        dd($post);
+        //return redirect()->route('pessoal.index');
 
     }
 

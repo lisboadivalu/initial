@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
 
@@ -9,21 +10,25 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog');
+        $posts = Post::all();
+        return view('blog', compact(['posts']));
     }
 
     public function tecnologiaIndex()
     {
-        return view('tecnologia');   
+        $postT = Post::where('genero', 'tecnologia')->get();
+        return view('tecnologia', compact(['postT']));   
     }
 
     public function esportsIndex()
     {
-        return view('esports');  
+        $postE = Post::where('genero', 'esports')->get();
+        return view('esports', compact(['postE']));  
     }
 
     public function criptoIndex()
-    {
-        return view('cripto');  
+    {   
+        $postC = Post::where('genero', 'tecnologia')->get();
+        return view('cripto', compact(['postC']));  
     }
 }

@@ -10,22 +10,21 @@ class Post extends Model
     use HasFactory;
     
     function user(){
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     function admin(){
-        return $this->hasMany(Admin::class);
+        return $this->belongsTo(Admin::class);
     }
 
-    function tecnologia(){
-        return $this->hasMany(Tecnologia::class);
-    }
+    protected $table = "posts";
 
-    function esport(){
-        return $this->hasMany(Esport::class);
-    }
-
-    function cripto(){
-        return $this->hasMany(Cripto::class);
-    }
+    protected $fillable = [
+        'titulo',
+        'img',
+        'img_size', 
+        'texto',
+        'genero',
+        'user_id'
+    ];
 }
