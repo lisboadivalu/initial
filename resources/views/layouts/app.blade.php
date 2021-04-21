@@ -28,7 +28,7 @@
                 </div>
 
                 <div>
-                    <a href="{{ url('/blog') }}" class="text-lg font-semibold text-gray-100 no-underline hover:underline">
+                    <a href="{{ url('/blog') }}" class="ml-28  text-lg font-semibold text-gray-100 no-underline hover:underline">
                         {{ __('Blog') }}
                     </a>
                 </div>
@@ -45,7 +45,7 @@
                         <a href="{{ route('logout') }}"
                            class="no-underline hover:underline"
                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>
