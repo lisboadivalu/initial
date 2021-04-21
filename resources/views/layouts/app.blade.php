@@ -22,13 +22,13 @@
         <header class="bg-black py-4 flex">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline hover:underline">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
                 <div>
-                    <a href="{{ url('/blog') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                    <a href="{{ url('/blog') }}" class="text-lg font-semibold text-gray-100 no-underline hover:underline">
                         {{ __('Blog') }}
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                             <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
                         @endif
                     @else
-                        <span>{{ Auth::user()->name }}</span>
+                        <span><a href="{{route('pessoal.index')}}" class="no-underline hover:underline">{{ Auth::user()->name }}</a></span>
 
                         <a href="{{ route('logout') }}"
                            class="no-underline hover:underline"

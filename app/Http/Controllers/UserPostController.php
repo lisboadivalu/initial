@@ -43,7 +43,6 @@ class UserPostController extends Controller
     public function store(Request $request)
     {
 
-        
         $request->validate([
             'titulo' => 'required',
             'texto' => 'required',
@@ -62,8 +61,8 @@ class UserPostController extends Controller
         $post->genero = $request->input('genero');
         $post->user_id = $request->user->id;
         $post->save();
-        dd($post);
-        //return redirect()->route('pessoal.index');
+        
+        return redirect()->route('pessoal.index');
 
     }
 

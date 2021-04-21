@@ -47,9 +47,9 @@
 
 <div class="px-10">
 	<div class="mt-24 max-w-7xl py-10 bg-gray-100 rounded-xl shadow-md text-center text-3xl font-bold">
-			<a href="#" class="hover:text-blue-800 px-16 my-15">Tecnologia</a>
-			<a href="#" class="hover:text-blue-800 px-16 my-15">Esports</a>
-			<a href="#" class="hover:text-blue-800 px-16 my-15">Criptomoedas</a>	
+			<a href="{{route('tecnologia')}}" class="hover:text-blue-800 px-16 my-15">Tecnologia</a>
+			<a href="{{route('esports')}}" class="hover:text-blue-800 px-16 my-15">Esports</a>
+			<a href="{{route('cripto')}}" class="hover:text-blue-800 px-16 my-15">Criptomoedas</a>	
 	</div>
 </div>
 

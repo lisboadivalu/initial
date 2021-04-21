@@ -9,22 +9,25 @@
     </div>
     
     <div class="bg-black bg-opacity-50 h-full absolute inset-0 hidden justify-center items-center" id="modal-form">
-        <div class="bg-gray-200 rounded-lg py-2 px-4">
-            <form action="{{route('pessoal.store')}}" method="POST" class="w-1/3  h-5/6 bg-gray-200 space-y-3 mx-10 font-bold" enctype="multipart/form-data">
+        <div class="bg-gray-200 rounded-lg py-2 px-10">
+            <form action="{{route('pessoal.store')}}" method="POST" class="w-full h-5/6 m-0 bg-gray-200 space-y-3 font-bold" enctype="multipart/form-data">
                 @csrf
                 <div class="">
                     <h1 class="text-center text-2xl">Novo Post</h1>
                 </div>
                 <div>
                     <label for="titulo">Titulo</label>
+                    <br>
                     <input type="text" name="titulo" class="form-input border-2 border-black border-opacity-100 mt-2">
                 </div>
                 <div class="mt-2">
                     <label for="foto">Foto</label>
+                    <br>
                     <input type="file" name="img" class="mt-2">
                 </div>
                 <div class="mt-2">
                     <label for="materia">Materia</label>
+                    <br>
                     <textarea 
                         class="mt-2 border-black boder-opacity-100 border-2 form-textarea resize-none h-36 w-80 " 
                         name="materia" id="" cols="30" rows="10">
@@ -32,6 +35,7 @@
                 </div>
                 <div class="mt-2 mb-6">
                     <label for="genero">Genero da Materia</label>
+                    <br>
                     <select name="genero" id="" class="form-select mt-2">
                         <option value="escolha">Escolha...</option>
                         <option value="tecnologia">Tecnologia</option>
@@ -40,7 +44,7 @@
                     </select>
                 </div>
             
-                <div class=" flex justify-end items-end ">
+                <div class=" flex justify-center items-center">
                 <button type="submit" id="postar-btn" class="px-4 py-2 bg-black hover:bg-gray-700 text-white font-bold rounded-md ">
                     Postar
                 </button>
@@ -90,10 +94,7 @@
             novo.addEventListener('click', toggleModal)
         })
 
-        var closemodal = document.querySelector('#cancelar-btn')
-        for (var i = 0; i < closemodal.length; i++) {
-          closemodal[i].addEventListener('click', toggleModal)
-        }
+        
     </script>        
       
 @endsection
