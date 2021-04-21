@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="carousel relative shadow-2xl  bg-white">
-	<div class="carousel-inner relative overflow-hidden w-full">
+	<div class="carousel-inner relative overflow-hidden w-full" data-slick='{"slideToShow": 3, "slideToScroll": 1, "autoplaySpeed": 2000}'>
 	  <!--Slide 1 Tecnologia-->
 		<input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
 		<div class="carousel-item absolute opacity-0 h-96">
@@ -73,5 +73,4 @@
 <div class="">
 <!-- colocar paginate para mostrar os ultimos posts do blog -->
 </div>
-
 @endsection

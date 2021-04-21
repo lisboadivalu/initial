@@ -20,5 +20,8 @@
         "postcss-nested": "^4.2",
         "tailwindcss": "^2.1.0",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "slick-carousel": "^1.8.1"
     }
 }

@@ -46,6 +46,8 @@ class UserPostController extends Controller
         $request->validate([
             'titulo' => 'required',
             'texto' => 'required',
+            'img' => 'required',
+            'img_size' => 'required',
             'genero' => 'required'
         ]);
 

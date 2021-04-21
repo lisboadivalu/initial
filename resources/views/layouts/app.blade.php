@@ -14,7 +14,6 @@
     
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    
 
 </head>
 <body class="bg-gray-200 h-screen antialiased leading-none font-sans">
