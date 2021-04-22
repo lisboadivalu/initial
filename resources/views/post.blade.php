@@ -12,10 +12,11 @@
 			<br>
             <p>
             <!-- -->
-            Texto da Materia
+            {{$posts->texto}}
+            
             </p>
 			<div class="mt-4">
-				<a href="#" class="hover:font-bold">Usuario</a>
+				<a href="#" class="capitalize hover:font-bold">{{$posts->user->name}}</a>
 			</div>
             <button class="py-2 px-4 bg-black font-bold rounded-md text-white mt-4" id="atualizar-btn">Atualizar</button>
 		</div>

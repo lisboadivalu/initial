@@ -57,13 +57,15 @@
     </div>
     
     <!-- exibicao de posts -->
+    
 
     <div class="grid grid-cols-3 gap-20 justify-items-center mx-14 pb-16">
-        <!-- Secao dos posts mais recentes -->
         <div class="max-h-sm max-w-sm rounded-xl shadow-md mt-10 text-center">
-            @foreach ($posts as $p)
-            
-            <img src="{{asset('public/images/' . $p->foto)}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
+        <!-- Secao dos posts mais recentes -->
+        
+        @for ($i = 0; $i < count($posts); $i++)
+        @foreach ($posts as $p)
+            <img src="{{asset('images/' . $p->foto)}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
             <div class="my-6">
                 <!-- colocar rota da materia -->
                 <a href="{{route('pessoal.show', $p['id'])}}" class="font-bold">{{$p->titulo}}</a> - <span>{{$p->created_at->format('d/m/Y')}}</span>
@@ -72,9 +74,7 @@
                 <div class="mt-4">
                     <span class="capitalize">{{$p->genero}}</span>
                 </div>    
-                @endforeach
-
-                @foreach ($posts as $p)
+                
                 <form action="{{route('pessoal.destroy', $p['id'])}}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -85,6 +85,7 @@
                 </form>
             </div>
         </div>
+        @endfor
     <div>
 <script>
     window.addEventListener('DOMContentLoaded', () => {

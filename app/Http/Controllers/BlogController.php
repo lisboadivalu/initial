@@ -14,6 +14,12 @@ class BlogController extends Controller
         return view('blog', compact(['posts']));
     }
 
+    public function show($id)
+    {
+        $post = Post::find($id);
+        return view('post', compact('post'));
+    }
+
     public function tecnologiaIndex()
     {
         $postT = Post::where('genero', 'tecnologia')->get();

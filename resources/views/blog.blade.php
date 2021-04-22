@@ -53,19 +53,19 @@
 	</div>
 </div>
 
-	
+	<!-- Secao dos posts mais recentes -->
 	<div class="grid grid-cols-2 gap-2 justify-items-center mt-16 pb-16">
-    <!-- Secao dos posts mais recentes -->	
     <div class="max-h-xl max-w-xl rounded-xl shadow-md mt-10 text-center">
+		@foreach ($posts as $p)
         <img src="{{asset('img/programming_topics.jpg')}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
         <div class="my-6">
-			<!-- colocar rota da materia -->
-			<a href="#" class="font-bold">Titulo</a> - <span class="font-bold">Data</span>
+			<a href="{{ route('blog.show', $p['id']) }}" class="font-bold capitalize">{{$p->titulo}}</a> - <span class="font-bold">{{$p->created_at->format('d/m/Y')}}</span>
 			<br>
 			<div class="mt-4">
-				<a href="#" class="hover:font-bold">Usuario</a>
+				<span class="capitalize hover:font-bold">{{$p->user->name}}</span>
 			</div>	
 		</div>
+		@endforeach
 	</div>
 
 <div>

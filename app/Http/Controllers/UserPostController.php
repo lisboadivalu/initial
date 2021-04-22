@@ -47,7 +47,7 @@ class UserPostController extends Controller
 
         $size = $request->file('img')->getSize();
         $name = $request->file('img')->getClientOriginalName(); 
-        $request->file('img')->storeAs('public/images', $name);
+        $request->file('img')->storeAs('images/', $name);
 
         $post = new Post();
         $post->titulo = $request->input('titulo');
@@ -97,7 +97,7 @@ class UserPostController extends Controller
     {
         $size = $request->file('foto')->getSize();
         $name = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('public/images', $name);
+        $request->file('foto')->storeAs('images/', $name);
 
         $post = Post::find($id);
         if(isset($post)){        

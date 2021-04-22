@@ -26,6 +26,7 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/tecnologia', [BlogController::class, 'tecnologiaIndex'])->name('tecnologia');
 
@@ -35,9 +36,7 @@ Route::get('/criptomoedas', [BlogController::class, 'criptoIndex'])->name('cript
 
 Route::resource('/pessoal', UserPostController::class);
 
-Route::get('/post', function(){
-    return view('post');
-});
+Route::get('/post', [BlogController::class, 'show'])->name('post.show');
 Route::post('/post', function(){
     return view('post');
 });
