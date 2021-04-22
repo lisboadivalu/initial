@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Queue\RedisQueue;
 
 class UserPostController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -42,29 +43,22 @@ class UserPostController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'titulo' => 'required',
-            'texto' => 'required',
-            'img' => 'required',
-            'img_size' => 'required',
-            'genero' => 'required'
-        ]);
+        //dd($request->all());
 
         $size = $request->file('img')->getSize();
-        $name = $request->file('img')->getClientOriginalName();
+        $name = $request->file('img')->getClientOriginalName(); 
         $request->file('img')->storeAs('public/images', $name);
 
-        $post = new Post;
+        $post = new Post();
         $post->titulo = $request->input('titulo');
         $post->texto = $request->input('materia');
         $post->img = $name;
         $post->img_size = $size;
         $post->genero = $request->input('genero');
-        $post->user_id = $request->user->id;
+        $post->user_id = $request->user()->id;
         $post->save();
         
-        return redirect()->route('pessoal.index');
+        return view('pessoal');
 
     }
 

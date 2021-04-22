@@ -33,12 +33,11 @@ Route::get('/esports', [BlogController::class, 'esportsIndex'])->name('esports')
 
 Route::get('/criptomoedas', [BlogController::class, 'criptoIndex'])->name('cripto');
 
-/* Route::get('/pessoal', function(){
-    return view('pessoal');
-}); */
-
 Route::resource('/pessoal', UserPostController::class);
 
 Route::get('/post', function(){
+    return view('post');
+});
+Route::post('/post', function(){
     return view('post');
 });
