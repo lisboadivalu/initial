@@ -8,7 +8,7 @@
         </button>
     </div>
     
-    <div class="bg-black bg-opacity-50 h-full absolute inset-0 hidden justify-center items-center" id="modal-form">
+    <div class="bg-black bg-opacity-50 h-screen absolute inset-0 hidden justify-center items-center" id="modal-form">
         <div class="bg-gray-200 rounded-lg py-2 px-10">
             <form action="{{ route('pessoal.store') }}" method="POST" class="w-full h-5/6 m-0 bg-gray-200 space-y-3 font-bold" enctype="multipart/form-data">
                 @csrf
@@ -60,12 +60,12 @@
     
 
     <div class="grid grid-cols-3 gap-20 justify-items-center mx-14 pb-16">
-        <div class="max-h-sm max-w-sm rounded-xl shadow-md mt-10 text-center">
+        
+        @foreach ($posts as $p)
+        <div class="max-h-xs w-80 rounded-xl shadow-md mt-10 text-center">
         <!-- Secao dos posts mais recentes -->
         
-        @for ($i = 0; $i < count($posts); $i++)
-        @foreach ($posts as $p)
-            <img src="{{asset('images/' . $p->foto)}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
+            <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="max-w-full h-72 object-fill object-center rounded-t-lg">
             <div class="my-6">
                 <!-- colocar rota da materia -->
                 <a href="{{route('pessoal.show', $p['id'])}}" class="font-bold">{{$p->titulo}}</a> - <span>{{$p->created_at->format('d/m/Y')}}</span>
@@ -81,11 +81,11 @@
                     <button type="submit" class="mt-6 py-4 px-4 shadow-md bg-red-600 hover:bg-red-900 font-bold text-white rounded-md">
                         Deletar
                     </button>
-                @endforeach  
+                    
                 </form>
             </div>
         </div>
-        @endfor
+        @endforeach 
     <div>
 <script>
     window.addEventListener('DOMContentLoaded', () => {

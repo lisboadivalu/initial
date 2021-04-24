@@ -54,20 +54,19 @@
 </div>
 
 	<!-- Secao dos posts mais recentes -->
+	@foreach ($posts as $p)
 	<div class="grid grid-cols-2 gap-2 justify-items-center mt-16 pb-16">
-    <div class="max-h-xl max-w-xl rounded-xl shadow-md mt-10 text-center">
-		@foreach ($posts as $p)
-        <img src="{{asset('img/programming_topics.jpg')}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
-        <div class="my-6">
-			<a href="{{ route('blog.show', $p['id']) }}" class="font-bold capitalize">{{$p->titulo}}</a> - <span class="font-bold">{{$p->created_at->format('d/m/Y')}}</span>
-			<br>
-			<div class="mt-4">
-				<span class="capitalize hover:font-bold">{{$p->user->name}}</span>
+    	<div class="max-h-xs max-w-xl rounded-xl shadow-md mt-10 text-center">
+    	    <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
+    	    <div class="my-6">
+				<a href="{{ route('blog.show', $p['id']) }}" class="font-bold capitalize">{{$p->titulo}}</a> - <span class="font-bold">{{$p->created_at->format('d/m/Y')}}</span>
+				<br>
+				<div class="mt-4">
+					<span class="capitalize hover:font-bold">{{$p->user->name}}</span>
 			</div>	
 		</div>
-		@endforeach
 	</div>
-
+	@endforeach
 <div>
 
 <div class="">

@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string('titulo');
             $table->string('texto');
             $table->string('img');
-            $table->string('img_size');
             $table->string('genero');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

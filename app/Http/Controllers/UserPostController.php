@@ -21,7 +21,8 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+
+        $posts = Post::where('user_id', auth()->user()->id);
         return view('pessoal', compact(['posts']));
     }
 
@@ -45,7 +46,6 @@ class UserPostController extends Controller
     {
         //dd($request->all());
 
-        $size = $request->file('img')->getSize();
         $name = $request->file('img')->getClientOriginalName(); 
         $request->file('img')->storeAs('images/', $name);
 
@@ -53,12 +53,11 @@ class UserPostController extends Controller
         $post->titulo = $request->input('titulo');
         $post->texto = $request->input('materia');
         $post->img = $name;
-        $post->img_size = $size;
         $post->genero = $request->input('genero');
         $post->user_id = $request->user()->id;
         $post->save();
         
-        return view('pessoal');
+        return redirect()->route('pessoal.index');
 
     }
 
@@ -70,8 +69,8 @@ class UserPostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('post', compact('post'));
+        $posts = Post::find($id);
+        return view('post', compact('posts'));
     }
 
     /**
@@ -82,7 +81,7 @@ class UserPostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $posts = Post::find($id);
         return view('post', compact('post'));
     }
 
@@ -95,18 +94,16 @@ class UserPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $size = $request->file('foto')->getSize();
-        $name = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('images/', $name);
+        $name = $request->file('img')->getClientOriginalName();
+        $request->file('img')->storeAs('images/', $name);
 
-        $post = Post::find($id);
-        if(isset($post)){        
-            $post->titulo = $request->input('titulo');
-            $post->texto = $request->input('materia');
-            $post->foto = $name;
-            $post->foto = $size;
-            $post->titulo = $request->input('genero');
-            $post->save();
+        $posts = Post::find($id);
+        if(isset($posts)){        
+            $posts->titulo = $request->input('titulo');
+            $posts->texto = $request->input('materia');
+            $posts->img = $name;
+            $posts->titulo = $request->input('genero');
+            $posts->save();
         }
 
         return redirect()->route('pessoal.index');
@@ -122,6 +119,6 @@ class UserPostController extends Controller
     {
         $del = Post::find($id);
         $del->delete();
-        return response('Ok', 200);
+        return redirect()->route('pessoal.index');
     }
 }
