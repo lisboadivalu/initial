@@ -16,8 +16,8 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('post', compact('post'));
+        $posts = Post::find($id);
+        return view('post', compact('posts'));
     }
 
     public function tecnologiaIndex()

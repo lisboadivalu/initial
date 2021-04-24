@@ -65,7 +65,7 @@
         <div class="max-h-xs w-80 rounded-xl shadow-md mt-10 text-center">
         <!-- Secao dos posts mais recentes -->
         
-            <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="max-w-full h-72 object-fill object-center rounded-t-lg">
+            <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="w-96 h-80 object-fill object-center rounded-t-lg">
             <div class="my-6">
                 <!-- colocar rota da materia -->
                 <a href="{{route('pessoal.show', $p['id'])}}" class="font-bold">{{$p->titulo}}</a> - <span>{{$p->created_at->format('d/m/Y')}}</span>

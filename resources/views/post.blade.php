@@ -2,10 +2,10 @@
 
 @section('content')
     
-<div class="grid grid-cols-1 gap-20  justify-items-center mt-20 pb-16">
+<div class="grid grid-cols-1 gap-20  justify-items-center mt-12 pb-16">
     <!-- Secao dos posts mais recentes -->
     <div class="max-h-md  max-w-md rounded-xl shadow-md mt-10 text-center">
-        <img src="{{ asset('storage/images/' . $posts->img) }}" alt="" class="max-w-full max-h-full object-cover object-center rounded-t-lg">
+        <img src="{{ asset('storage/images/' . $posts->img) }}" alt="" class="w-96 h-80 object-cover object-center rounded-t-lg">
         <div class="my-6">
 			<!-- colocar rota da materia -->
 			<span class="font-bold">{{$posts->titulo}} - {{$posts->created_at->format('d/m/Y')}}</span>

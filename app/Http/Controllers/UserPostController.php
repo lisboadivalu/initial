@@ -21,8 +21,7 @@ class UserPostController extends Controller
      */
     public function index()
     {
-
-        $posts = Post::where('user_id', auth()->user()->id);
+        $posts = Post::all()->where('user_id', auth()->user()->id);
         return view('pessoal', compact(['posts']));
     }
 
