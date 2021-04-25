@@ -16,9 +16,14 @@
             
             </p>
 			<div class="mt-4">
-				<p class="capitalize hover:font-bold">{{$posts->user->name}}</p>
+				<p class="capitalize hover:font-bold">Usuario: {{$posts->user->name}}</p>
 			</div>
+            <input type="hidden" value="{{$login = auth()->user()->id}}">
+        
+            @if($login == $posts->user_id)
+            
             <button class="py-2 px-4 bg-black font-bold rounded-md text-white mt-4" id="atualizar-btn">Atualizar</button>
+            @endif
 		</div>
 	</div>
 <div>
