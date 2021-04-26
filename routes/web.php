@@ -27,13 +27,15 @@ Auth::routes();
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
 
+//secoes de posts
 Route::get('/tecnologia', [BlogController::class, 'tecnologia'])->name('tecnologia');
 Route::get('/esports', [BlogController::class, 'esports'])->name('esports');
 Route::get('/criptomoedas', [BlogController::class, 'cripto'])->name('cripto');
 
-//Publicacao, 
+//Publicacao de post por usuario 
 Route::resource('/pessoal', UserPostController::class);
 
+//visualizacao por post
 Route::get('/post', [UserPostController::class, 'show'])->name('post.show');
 
 
