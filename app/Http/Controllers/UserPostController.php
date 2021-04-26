@@ -21,7 +21,8 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->where('user_id', auth()->user()->id);
+
+        $posts = Post::all()->where('user_id', auth()->user()->id)->sortByDesc('created_at');
         return view('pessoal', compact(['posts']));
     }
 
@@ -93,15 +94,11 @@ class UserPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->file('img')->getClientOriginalName();
-        $request->file('img')->storeAs('images/', $name);
-
         $posts = Post::find($id);
         if(isset($posts)){        
             $posts->titulo = $request->input('titulo');
             $posts->texto = $request->input('materia');
-            $posts->img = $name;
-            $posts->titulo = $request->input('genero');
+            $posts->genero = $request->input('genero');
             $posts->save();
         }
 

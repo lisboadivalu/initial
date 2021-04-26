@@ -17,6 +17,10 @@ class Post extends Model
         return $this->belongsTo(Admin::class);
     }
 
+    function genero(){
+        return $this->belongsTo(Genero::class);
+    }
+
     protected $table = "posts";
 
     protected $fillable = [

@@ -27,9 +27,9 @@ Auth::routes();
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::get('/tecnologia', [BlogController::class, 'tecnologiaIndex'])->name('tecnologia');
-Route::get('/esports', [BlogController::class, 'esportsIndex'])->name('esports');
-Route::get('/criptomoedas', [BlogController::class, 'criptoIndex'])->name('cripto');
+Route::get('/tecnologia', [BlogController::class, 'tecnologia'])->name('tecnologia');
+Route::get('/esports', [BlogController::class, 'esports'])->name('esports');
+Route::get('/criptomoedas', [BlogController::class, 'cripto'])->name('cripto');
 
 //Publicacao, 
 Route::resource('/pessoal', UserPostController::class);

@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('created_at');
         return view('blog', compact(['posts']));
     }
 
@@ -20,21 +20,21 @@ class BlogController extends Controller
         return view('post', compact('posts'));
     }
 
-    public function tecnologiaIndex()
+    public function tecnologia()
     {
-        $postT = Post::where('genero', 'tecnologia')->get();
+        $postT = Post::all()->where('genero', 'tecnologia')->sortByDesc('created_at');
         return view('tecnologia', compact(['postT']));   
     }
 
-    public function esportsIndex()
+    public function esports()
     {
-        $postE = Post::where('genero', 'esports')->get();
+        $postE = Post::all()->where('genero', 'esports')->sortByDesc('created_at');
         return view('esports', compact(['postE']));  
     }
 
-    public function criptoIndex()
+    public function cripto()
     {   
-        $postC = Post::where('genero', 'tecnologia')->get();
+        $postC = Post::all()->where('genero', 'tecnologia')->sortByDesc('created_at');
         return view('cripto', compact(['postC']));  
     }
 }

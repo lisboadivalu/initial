@@ -37,10 +37,10 @@
                     <label for="genero">Genero da Materia</label>
                     <br>
                     <select name="genero" id="" class="form-select mt-2">
-                        <option value="escolha">Escolha...</option>
-                        <option value="tecnologia">Tecnologia</option>
-                        <option value="esports">Esports</option>
-                        <option value="cripto">Criptomoedas</option>
+                        <option selected>Escolha...</option>
+                        <option class="capitalize" value="tecnologia">tecnologia</option>
+                        <option class="capitalize" value="esports">esports</option>
+                        <option class="capitalize" value="cripto">criptomoedas</option>
                     </select>
                 </div>
             
@@ -48,7 +48,7 @@
                     <button type="submit" id="postar-btn" class="px-4 py-2 bg-black hover:bg-gray-700 text-white font-bold rounded-md ">
                         Postar
                     </button>
-                    <button id="cancelar-btn" class="px-4 py-2 ml-4 bg-red-700 hover:bg-red-900 text-white font-bold rounded-md ">
+                    <button type="button" id="cancelar-btn" class="px-4 py-2 ml-4 bg-red-700 hover:bg-red-900 text-white font-bold rounded-md ">
                         Cancelar
                     </button>
                 </div>
@@ -65,7 +65,7 @@
         <div class="max-h-xs w-80 rounded-xl shadow-md mt-10 text-center">
         <!-- Secao dos posts mais recentes -->
         
-            <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="w-96 h-80 object-fill object-center rounded-t-lg">
+            <img src="{{asset('storage/images/' . $p->img)}}" alt="" class="w-96 h-80 object-cover object-center rounded-t-lg">
             <div class="my-6">
                 <!-- colocar rota da materia -->
                 <a href="{{route('pessoal.show', $p['id'])}}" class="font-bold">{{$p->titulo}}</a> - <span>{{$p->created_at->format('d/m/Y')}}</span>
@@ -97,6 +97,7 @@
             form.classList.toggle('flex')
         }
         novo.addEventListener('click', toggleModal)
+        cancelar.addEventListener('click', toggleModal)
     })
 </script>        
       
