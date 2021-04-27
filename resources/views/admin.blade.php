@@ -1,8 +1,14 @@
 @extends('layouts.app')
-@section('body')
+@section('content')
     
 <div class="flex justify-center py-10">
-    <button id="novo-btn" class="px-4 py-2 rounded-md bg-black shadow-md text-xl text-white font-bold">
+    <div class="h-30 w-72 rounded-md shadow-md justify-center object-center text-center text-xl font-bold">
+        <div>
+            <h1>Painel Admin</h1>
+        </div>
+    </div>
+
+    <button id="novo-btn" class="px-4 py-2 rounded-md bg-black hover:bg-gray-700 shadow-md text-xl text-white font-bold">
         Novo Post
     </button>
 </div>
@@ -54,6 +60,37 @@
         </form>
     </div>
 </div>
+
+
+    <div>
+        <table class="table-fixed border-black">
+            <thead>
+                <tr>
+                    <th>Post Id</th>
+                    <th>Post</th>
+                    <th>Usuario</th>
+                    <th>Genero</th>
+                    <th>Opcao</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    <tr>
+                        <th>123</th>
+                        <th>123</th>
+                        <th>123</th>
+                        <th>123</th>
+                        <th>123</th>
+                        <th>
+                            <button class="px-4 py-2 bg-red-700 hover:bg-red-500 text-white rounded-md">
+                                Deletar
+                            </button>
+                        </th>
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>
 
 
 

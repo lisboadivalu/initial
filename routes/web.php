@@ -39,3 +39,6 @@ Route::resource('/pessoal', UserPostController::class);
 Route::get('/post', [UserPostController::class, 'show'])->name('post.show');
 
 
+Route::get('/admin', function(){
+    return view('admin');
+});
