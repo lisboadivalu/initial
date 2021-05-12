@@ -76,18 +76,19 @@
             <tbody>
                
                     <tr>
-                        <th>123</th>
-                        <th>123</th>
-                        <th>123</th>
-                        <th>123</th>
-                        <th>123</th>
+                        @foreach ($posts as $p)
+                        <th>{{$p->id}}</th>
+                        <th>{{$p->titulo}}</th>
+                        <th>{{$p->user->name}}</th>
+                        <th>{{$p->genero}}</th>
                         <th>
                             <button class="px-4 py-2 bg-red-700 hover:bg-red-500 text-white rounded-md">
                                 Deletar
                             </button>
                         </th>
+                        @endforeach
                     </tr>
-               
+                
             </tbody>
         </table>
     </div>
